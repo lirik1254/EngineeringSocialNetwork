@@ -24,7 +24,7 @@ Use Case
 ![Диаграмма без названия drawio (6)](https://github.com/user-attachments/assets/183d3e92-3800-4a05-b2da-4732d7ce4f1b)
 
 DDD - Агрегаты, сущности, value object'ы
-![Диаграмма без названия drawio (7)](https://github.com/user-attachments/assets/08070075-99e1-45a0-a084-a783113b902f)
+![Диаграмма без названия drawio (8)](https://github.com/user-attachments/assets/de6d7532-0b38-4ebc-842a-41e20d5fd828)
 
 ERD-диаграмма
 ![Untitled (1)](https://github.com/user-attachments/assets/3ae95851-cbf1-4e54-b692-78b82917b25a)
