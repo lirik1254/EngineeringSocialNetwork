@@ -1,6 +1,5 @@
 package org.example.engineeringsocialnetwork;
 
-import org.example.engineeringsocialnetwork.factory.CourseFactory;
 import org.example.engineeringsocialnetwork.factory.ProjectFactory;
 import org.example.engineeringsocialnetwork.factory.UserFactory;
 import org.junit.jupiter.api.Test;
@@ -8,12 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class FactoryTest {
-    @Test
-    public void courseFactoryTest() {
-        CourseFactory courseFactory = new CourseFactory();
-        assertEquals(3, courseFactory.getCourses().size());
-    }
-
     @Test
     public void ProjectFactoryTest() {
         ProjectFactory projectFactory = new ProjectFactory();

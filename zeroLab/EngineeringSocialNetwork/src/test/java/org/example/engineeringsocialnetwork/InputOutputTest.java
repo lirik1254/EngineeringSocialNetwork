@@ -4,9 +4,9 @@ import org.example.engineeringsocialnetwork.entities.Course;
 import org.example.engineeringsocialnetwork.entities.Info;
 import org.example.engineeringsocialnetwork.entities.Project;
 import org.example.engineeringsocialnetwork.entities.User;
-import org.example.engineeringsocialnetwork.factory.CourseFactory;
 import org.example.engineeringsocialnetwork.factory.ProjectFactory;
 import org.example.engineeringsocialnetwork.factory.UserFactory;
+import org.example.engineeringsocialnetwork.service.CourseService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -76,9 +76,9 @@ public class InputOutputTest {
     }
 
     @Test
-    public void courseFactoryAnswerTest() {
+    public void courseServiceAnswerTest() {
         setInput("2\n0\n");
-        CourseFactory courseFactory = new CourseFactory();
+        CourseService courseFactory = new CourseService();
         StringBuilder courses = new StringBuilder();
         for (Course course : courseFactory.getCourses()) {
             courses.append(course.toString());
@@ -97,7 +97,7 @@ public class InputOutputTest {
 
     @Test
     public void projectFactoryAnswerTest() {
-        setInput("3\n0\n");
+        setInput("6\n0\n");
         ProjectFactory projectFactory = new ProjectFactory();
         StringBuilder projects = new StringBuilder();
         for (Project project : projectFactory.getProjects()) {
@@ -116,7 +116,7 @@ public class InputOutputTest {
 
     @Test
     public void userFactoryAnswerTest() {
-        setInput("4\n0\n");
+        setInput("7\n0\n");
         UserFactory userFactory = new UserFactory();
         StringBuilder users = new StringBuilder();
         for (User user : userFactory.getUsers()) {
@@ -135,9 +135,112 @@ public class InputOutputTest {
 
     @Test
     public void legalInformationInfoAnswerTest() {
-        setInput("5\n0\n");
+        setInput("8\n0\n");
 
         inputOutput.getStart();
         assertTrue(outputStreamCaptor.toString().contains(Info.LEGAL_INFORMATION));
+    }
+
+    @Test
+    public void correctAddCourse() {
+        assertEquals(3, inputOutput.courseService.getCourses().size());
+
+        setInput("3\nНорм курс\nНорм группа\n2020-10-10\n2020-12-12\n");
+
+        inputOutput.addCourse();
+        assertEquals(4, inputOutput.courseService.getCourses().size());
+    }
+
+    @Test
+    public void wrongAddCourse() {
+        assertEquals(3, inputOutput.courseService.getCourses().size());
+
+        setInput("3\nНорм курс\nНорм группа\nasdfadsf\nasdfasdf\n2020-10-10\n2020-12-12\n");
+
+        inputOutput.addCourse();
+        assertEquals(4, inputOutput.courseService.getCourses().size());
+    }
+
+    @Test
+    public void correctEditCourse() {
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .anyMatch(s -> s.getCourseTitle().equals("Инженерная дисциплина1")));
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .noneMatch(s -> s.getCourseTitle().equals("Лол")));
+
+        setInput("4\nИнженерная дисциплина1\nЛол");
+
+        inputOutput.editCourse();
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .noneMatch(s -> s.getCourseTitle().equals("Инженерная дисциплина1")));
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .anyMatch(s -> s.getCourseTitle().equals("Лол")));
+    }
+
+    @Test
+    public void wrongEditCourse() {
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .anyMatch(s -> s.getCourseTitle().equals("Инженерная дисциплина1")));
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .noneMatch(s -> s.getCourseTitle().equals("Лол")));
+
+        setInput("4\nИнженерная дисциплина52\nsafsdf\nasdasfd\nИнженерная дисциплина1\nЛол");
+
+        inputOutput.editCourse();
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .noneMatch(s -> s.getCourseTitle().equals("Инженерная дисциплина1")));
+
+        assertTrue(inputOutput.courseService
+                .getCourses()
+                .stream()
+                .anyMatch(s -> s.getCourseTitle().equals("Лол")));
+    }
+
+    @Test
+    public void correctDeleteCourse() {
+        assertEquals(3, inputOutput.courseService
+                .getCourses()
+                .size());
+
+        setInput("5\nИнженерная дисциплина1");
+
+        inputOutput.deleteCourse();
+
+        assertEquals(2, inputOutput.courseService
+                .getCourses()
+                .size());
+    }
+
+    @Test
+    public void wrongDeleteCourse() {
+        assertEquals(3, inputOutput.courseService
+                .getCourses()
+                .size());
+
+        setInput("5\nИнженерная\nдисциплина\n52\nИнженерная дисциплина1");
+
+        inputOutput.deleteCourse();
+
+        assertEquals(2, inputOutput.courseService.getCourses().size());
+
     }
 }
