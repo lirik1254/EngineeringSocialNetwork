@@ -26,6 +26,34 @@ Use Case
 DDD - Агрегаты, сущности, value object'ы
 ![Диаграмма без названия drawio (8)](https://github.com/user-attachments/assets/de6d7532-0b38-4ebc-842a-41e20d5fd828)
 
+Команды
+1. **mainInfoCommand**		        
+	    - Действие: Выводит основную информацию о платформе.        
+	2. **getCourses**		    		        
+	    - Действие: Выводит все курсы.		        
+	3. **addCourse**		    	        
+	    - Действие: Добавляет курс.		        
+	4. **editCourse**    	        
+	    - Действие: Обновляет курс.		        
+	5. **deleteCourse**		    		        
+	    - Действие: Удаляет курс.		        
+	6. **getProjects**		    		        
+	    - Действие: Выводит все проекты		        
+	7. **getUsers**		           
+	    - Действие: Выводит всех людей
+	8. **getLegalInformation**		            
+	    - Действие: Выводит юридическую информацию о компании
+
+3. События
+	1. **UserGetMainInfo**: Пользователь вывел основную информацию о платформе.
+	2. **UserGetCourses**: Пользователь получил список курсов.
+	3. **UserAddCourse**: Пользователь добавил курс.
+	4. **UserEditCourse**: Пользователь изменил курс.
+	5. **UserDeleteCourse**: Пользователь удалил курс.
+	6. **UserGetProjects**: Пользователь вывел все проекты.
+	7. **UserGetUsers**: Пользователь вывел всех пользователей.
+	8. **UserGetLegalInformation**: Пользователь вывел юридическую информацию из компании.
+
 ERD-диаграмма
 ![Untitled (1)](https://github.com/user-attachments/assets/3ae95851-cbf1-4e54-b692-78b82917b25a)
 
