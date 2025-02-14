@@ -1,47 +1,18 @@
 ## Отчёт
-### 1. Выбрать тему для Вашей новой DSS (примеры тем) или придумать и согласовать свою.
-Разработка информационной системы для публикации профессионального медиа контента
 
-### 2. Создать репозиторий для работы над Вашей DSS.
-Репозиторий создал
-
-### 3. Выявить первоначальные требования к Вашей DSS.
-
-Посмотреть то, что планируется реализовать (черновой вариант для себя), можно на доске
-https://miro.com/welcomeonboard/elA1UTNJT1lKU0o2SWtXL0FTZHAyM1dSM2hRVStOWUI1MkFXSjVsNUg5ZE03ZHhBRGZzZ3h6YUZWVlZYdlg1VkdoamJBSTlGSFlBckhsL2NyUzlZNHF2TURVcHJIL2JuV1FVb0F5UnhyTW5lMFY5aTYvZzZxa3hqU1JXMjdXZU8hZQ==?share_link_id=250317751550
-
-Будут реализованы функции для главного экрана, вот основные юзкейсы:
-
-1) Пользователь видит основную информацию
-2) Пользователь видит список курсов
-3) Пользователь видит список проектов
-4) Пользователь видит список людей 
-5) Пользователь видит юридическую информацию о компании
-
-### 4. Создать модель предметной области
-
-Use Case  
-![Диаграмма без названия drawio (6)](https://github.com/user-attachments/assets/183d3e92-3800-4a05-b2da-4732d7ce4f1b)
-
-DDD - Агрегаты, сущности, value object'ы
-![Диаграмма без названия drawio (8)](https://github.com/user-attachments/assets/de6d7532-0b38-4ebc-842a-41e20d5fd828)
-
-ERD-диаграмма
-![Untitled (1)](https://github.com/user-attachments/assets/3ae95851-cbf1-4e54-b692-78b82917b25a)
+# Что было сделано
+- Подключена БД PostgreSQL
+- Реализованы api endpoints (круд api для сущностей user и project)
+- Реализованы тесты для api
+- Добавление логирование
+- Добавлен Dockerfile и docker-compose файл
+- Запросы к БД делаются в асинхронном режиме
 
 
+Async
 
-### 5. Инструментарий
-Java, Spring  
-Intellij IDEA 2024.3.1.1 (Ultimate Edition)
+![image](https://github.com/user-attachments/assets/59944436-d68a-4708-bdb4-0e0be0674a3e)
 
-### 6. Модель данных
-На уровне приложения - классы, отображающие сущности в бд  
-На уровне хранения - реляционная бд PostgreSQL
+Корректная работа программы
 
-### 7. Реализовать первоначальные требования (из п.3) к Вашей DSS.
-Реализовал
-
-### 8. Загрузить первую версию DSS на веб-хостинг (Github, Gitlab, etc.)
-Загрузил
-
+![image](https://github.com/user-attachments/assets/488789ad-8fff-44cc-af83-850e3d69a724)
